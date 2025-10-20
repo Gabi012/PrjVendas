@@ -1,0 +1,16 @@
+@model IEnumerable<PrjVendas.Domain.Entities.Pedido>
+<h2>Pedidos</h2>
+<table class="table">
+    <thead><tr><th>Id</th><th>Data</th><th>Funcionario</th><th>Itens</th></tr></thead>
+    <tbody>
+    @foreach(var p in Model)
+    {
+        <tr>
+            <td>@p.Id</td>
+            <td>@p.Data</td>
+            <td>@p.Funcionario?.Nome</td>
+            <td>@(p.Itens?.Count() ?? 0)</td>
+        </tr>
+    }
+    </tbody>
+</table>

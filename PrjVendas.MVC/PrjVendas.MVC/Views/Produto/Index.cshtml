@@ -1,0 +1,16 @@
+@model IEnumerable<PrjVendas.Domain.Entities.Produto>
+<h2>Produtos</h2>
+<table class="table">
+    <thead><tr><th>Id</th><th>Nome</th><th>Categoria</th><th>Preço</th></tr></thead>
+    <tbody>
+    @foreach(var p in Model)
+    {
+        <tr>
+            <td>@p.Id</td>
+            <td>@p.Nome</td>
+            <td>@p.Categoria?.Nome</td>
+            <td>@p.Preco.ToString("C")</td>
+        </tr>
+    }
+    </tbody>
+</table>
