@@ -4,5 +4,6 @@ namespace PrjVendas.MVC.Controllers;
 
 public class HomeController : Controller
 {
-    public IActionResult Index() => RedirectToAction("Index", "Produto");
+    //public IActionResult Index() => RedirectToAction("Index", "Produto");
+    public IActionResult Index() => RedirectToAction("Index", "Funcionario");
 }

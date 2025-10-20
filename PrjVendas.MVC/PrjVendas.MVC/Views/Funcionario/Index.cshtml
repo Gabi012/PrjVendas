@@ -1,0 +1,8 @@
+﻿<a asp-action="Create">Create</a>
+@if (TempData["Mensagem"] != null)
+{
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+
+        @TempData["Mensagem"]
+    </div>
+}

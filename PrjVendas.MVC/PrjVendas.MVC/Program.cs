@@ -1,7 +1,9 @@
 using Microsoft.EntityFrameworkCore;
+using PrjVendas.Application.Profiles;
 using PrjVendas.Application.Services;
 using PrjVendas.Infrastructure.Context;
 using PrjVendas.Infrastructure.Repositories;
+using PrjVendas.MVC.Profiles;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,6 +14,11 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
+builder.Services.AddAutoMapper(
+    typeof(DomainToDTOProfile).Assembly,    // profiles da Application
+    typeof(ViewModelToDTO).Assembly  // profiles da MVC
+);
+
 
 builder.Services.AddScoped(typeof(PrjVendas.Domain.Interfaces.IGenericRepository<>), typeof(GenericRepository<>));
 builder.Services.AddScoped<PrjVendas.Domain.Interfaces.IFuncionarioRepository, FuncionarioRepository>();
