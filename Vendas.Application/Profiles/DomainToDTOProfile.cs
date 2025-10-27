@@ -10,7 +10,10 @@ namespace Vendas.Application.Profiles
         public DomainToDTOProfile()
         {
             // DTO → Entidade
-            CreateMap<FuncionarioDTO, Funcionario>().ReverseMap();
+            CreateMap<FuncionarioCreateDto, Funcionario>().ReverseMap();
+            CreateMap<FuncionarioReadDto, Funcionario>().ReverseMap();
+            CreateMap<FuncionarioReadDto, FuncionarioCreateDto>().ReverseMap();
+            CreateMap<FuncionarioUpdateDto, Funcionario>().ReverseMap();
         }
     }
 }
